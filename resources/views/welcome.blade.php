@@ -23,9 +23,12 @@
                 @foreach ($trains as $train)
                     <div class="col-3 my-2 ">
                         <div class="card_">
-                            <div class="container_">
-
-                            </div>
+                            <h5>{{ $train['agency'] }}</h5>
+                            <span>Number: {{ $train['number_train'] }}</span>
+                            <div>From:{{ $train['departure_station'] }}</div>
+                            <div>To:{{ $train['arrival_station'] }}</div>
+                            <div>Departure time:{{ $train['departure_time'] }}</div>
+                            <div>Arrive at: {{ $train['arrival_time'] }}</div>
                         </div>
                     </div>
                 @endforeach

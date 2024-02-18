@@ -11,7 +11,10 @@ class PageController extends Controller
 {
     public function index()
     {
-        $trains = Train::all();
+
+        $today = now()->format('Y-m-d');
+        $trains = Train::where('departure_time', 'LIKE', $today . '%')->get();
+
         return view('welcome', compact('trains'));
     }
 }
