@@ -20,18 +20,25 @@
     <main class="bg-light">
         <div class="container">
             <div class="row d-flex">
-                @foreach ($trains as $train)
-                    <div class="col-3 my-2 ">
-                        <div class="card_">
-                            <h5>{{ $train['agency'] }}</h5>
-                            <span>Number: {{ $train['number_train'] }}</span>
-                            <div>From:{{ $train['departure_station'] }}</div>
-                            <div>To:{{ $train['arrival_station'] }}</div>
-                            <div>Departure time:{{ $train['departure_time'] }}</div>
-                            <div>Arrive at: {{ $train['arrival_time'] }}</div>
+                <div class="col-12">
+                    <h1> TRENI IN PARTENZA OGGI</h1>
+                </div>
+                @if (count($trains) == 0)
+                    <h2>Nessun treno previsto per oggi, ci dispiace</h2>
+                @else
+                    @foreach ($trains as $train)
+                        <div class="col-3 my-2 ">
+                            <div class="card_ p-2">
+                                <h5>{{ $train['agency'] }}</h5>
+                                <span>Number: {{ $train['number_train'] }}</span>
+                                <div>From:{{ $train['departure_station'] }}</div>
+                                <div>To:{{ $train['arrival_station'] }}</div>
+                                <div>Departure time:{{ $train['departure_time'] }}</div>
+                                <div>Arrive at: {{ $train['arrival_time'] }}</div>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
 
         </div>
